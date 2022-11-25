@@ -34,7 +34,7 @@ public class MainFrame extends javax.swing.JFrame {
         btn0 = new javax.swing.JButton();
         btn2 = new javax.swing.JButton();
         btn3 = new javax.swing.JButton();
-        btnNewNumber = new javax.swing.JTextField();
+        txtFieldNewNumber = new javax.swing.JTextField();
         btn4 = new javax.swing.JButton();
         btn5 = new javax.swing.JButton();
         btn6 = new javax.swing.JButton();
@@ -47,6 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnBorrarNumero = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
         btnRetrocederNumero1 = new javax.swing.JButton();
+        lblCurrentList = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -84,8 +85,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnNewNumber.setBackground(new java.awt.Color(153, 153, 255));
-        btnNewNumber.setForeground(new java.awt.Color(0, 0, 0));
+        txtFieldNewNumber.setBackground(new java.awt.Color(153, 153, 255));
+        txtFieldNewNumber.setForeground(new java.awt.Color(0, 0, 0));
+        txtFieldNewNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFieldNewNumber.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btn4.setBackground(new java.awt.Color(153, 153, 255));
         btn4.setForeground(new java.awt.Color(0, 0, 0));
@@ -149,6 +152,11 @@ public class MainFrame extends javax.swing.JFrame {
         btnIngresarNumero.setBackground(new java.awt.Color(153, 153, 255));
         btnIngresarNumero.setText("Ingresar Número");
         btnIngresarNumero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIngresarNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarNumeroActionPerformed(evt);
+            }
+        });
 
         btn9.setBackground(new java.awt.Color(153, 153, 255));
         btn9.setForeground(new java.awt.Color(0, 0, 0));
@@ -198,49 +206,59 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblCurrentList.setBackground(new java.awt.Color(255, 255, 255));
+        lblCurrentList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCurrentList.setForeground(new java.awt.Color(0, 0, 0));
+        lblCurrentList.setText("Lista actual: ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCurrentList)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnRetrocederNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnNewNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnIngresarNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(btnBuscarNúmero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBorrarNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBorrarLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btn7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(2, 2, 2)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnRetrocederNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFieldNewNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnIngresarNumero, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(btnBuscarNúmero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBorrarNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnBorrarLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
+                .addComponent(lblCurrentList)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNewNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFieldNewNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIngresarNumero))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -265,7 +283,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        btnNewNumber.setEditable(false);
+        txtFieldNewNumber.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -291,63 +309,63 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarNúmeroActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "1");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "1");
         }
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        if ((btnNewNumber.getText().length() != 22) && (btnNewNumber.getText().length() != 0)){
-            btnNewNumber.setText(btnNewNumber.getText()+ "0");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "0");
         }
         
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "2");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "2");
         }
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "3");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "3");
         }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "4");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "4");
         }
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "5");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "5");
         }
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "6");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "6");
         }
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "7");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "7");
         }
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "8");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "8");
         }
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        if (btnNewNumber.getText().length() != 22){
-            btnNewNumber.setText(btnNewNumber.getText()+ "9");
+        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "9");
         }
     }//GEN-LAST:event_btn9ActionPerformed
 
@@ -356,16 +374,26 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBorrarNumeroActionPerformed
 
     private void btnRetrocederNumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederNumero1ActionPerformed
-        if (btnNewNumber.getText().length() == 0){
+        if (txtFieldNewNumber.getText().length() == 0){
             JOptionPane.showMessageDialog(null, "No hay nada que borrar");
         } else {
-            btnNewNumber.setText(btnNewNumber.getText().substring(0, btnNewNumber.getText().length()-1));
+            txtFieldNewNumber.setText(txtFieldNewNumber.getText().substring(0, txtFieldNewNumber.getText().length()-1));
         }
     }//GEN-LAST:event_btnRetrocederNumero1ActionPerformed
 
     private void btnBorrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarListaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBorrarListaActionPerformed
+
+    private void btnIngresarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarNumeroActionPerformed
+        // TODO add your handling code here:
+        if (lblCurrentList.getText().equals("Lista actual: ")){
+            lblCurrentList.setText(lblCurrentList.getText() + txtFieldNewNumber.getText());
+        } else if(txtFieldNewNumber.getText().equals("") == false){
+            lblCurrentList.setText(lblCurrentList.getText()+ ", " + txtFieldNewNumber.getText());
+        }
+        txtFieldNewNumber.setText("");
+    }//GEN-LAST:event_btnIngresarNumeroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,8 +446,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnBorrarNumero;
     private javax.swing.JButton btnBuscarNúmero;
     private javax.swing.JButton btnIngresarNumero;
-    private javax.swing.JTextField btnNewNumber;
     private javax.swing.JButton btnRetrocederNumero1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCurrentList;
+    private javax.swing.JTextField txtFieldNewNumber;
     // End of variables declaration//GEN-END:variables
 }

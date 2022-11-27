@@ -142,10 +142,6 @@ public class Lista {
         this.nodoSiguiente = listaResultado;
     }
     
-    public void binarySearch(int numeroBuscar) {
-        
-    }
-    
     // imprime los valores de la lista
     public void listar(){
         if (nodoSiguiente != null) {

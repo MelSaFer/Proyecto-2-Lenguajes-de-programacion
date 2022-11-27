@@ -10,23 +10,13 @@ package proyecto2lenguajes;
  * @author melan
  */
 public class Lista {
-    int valor;
     Elemento nodoSiguiente;
 
-    public Lista(int valor, Elemento nodoSiguiente) {
-        this.valor = valor;
+    public Lista(Elemento nodoSiguiente) {
         this.nodoSiguiente = nodoSiguiente;
     }
 
     public Lista() {
-    }
-
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
     }
 
     public Elemento getNodoSiguente() {
@@ -38,7 +28,6 @@ public class Lista {
     }
     
     public void agregarElemento( Elemento nuevoElemento) {
-        
         
     }
     

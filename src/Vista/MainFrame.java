@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import proyecto2lenguajes.Lista;
 
 public class MainFrame extends javax.swing.JFrame {
+    Lista listaUsuario;
 
     /**
      * Creates new form MainFrame
@@ -23,6 +24,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public MainFrame(Lista ListaActual) {
+        listaUsuario = ListaActual;
         initComponents();
     }
 
@@ -137,6 +139,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnBorrarLista.setBackground(new java.awt.Color(153, 153, 255));
+        btnBorrarLista.setForeground(new java.awt.Color(0, 0, 0));
         btnBorrarLista.setText("Borrar Lista");
         btnBorrarLista.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBorrarLista.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +159,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnIngresarNumero.setBackground(new java.awt.Color(153, 153, 255));
+        btnIngresarNumero.setForeground(new java.awt.Color(0, 0, 0));
         btnIngresarNumero.setText("Ingresar Número");
         btnIngresarNumero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnIngresarNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -175,6 +179,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnBuscarNúmero.setBackground(new java.awt.Color(153, 153, 255));
+        btnBuscarNúmero.setForeground(new java.awt.Color(0, 0, 0));
         btnBuscarNúmero.setText("Buscar Número");
         btnBuscarNúmero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscarNúmero.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +189,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnBorrarNumero.setBackground(new java.awt.Color(153, 153, 255));
+        btnBorrarNumero.setForeground(new java.awt.Color(0, 0, 0));
         btnBorrarNumero.setText("Borrar Número");
         btnBorrarNumero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBorrarNumero.addActionListener(new java.awt.event.ActionListener() {

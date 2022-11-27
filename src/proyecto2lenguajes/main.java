@@ -22,8 +22,7 @@ public class main {
         
         MainFrame ventanaPrincipal = new MainFrame(listaActual);
         ventanaPrincipal.setVisible(true);
-        
-        listaActual.toString();
+  
         
     }
     

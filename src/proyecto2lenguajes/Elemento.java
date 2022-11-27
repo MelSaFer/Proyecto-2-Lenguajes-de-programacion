@@ -11,11 +11,11 @@ package proyecto2lenguajes;
  */
 public class Elemento {
     int valor;
-    Elemento nodoSiguente;
+    Elemento nodoSiguiente;
 
-    public Elemento(int valor, Elemento nodoSiguente) {
+    public Elemento(int valor, Elemento nodoSiguiente) {
         this.valor = valor;
-        this.nodoSiguente = nodoSiguente;
+        this.nodoSiguiente = nodoSiguiente;
     }
 
     public Elemento() {
@@ -29,19 +29,12 @@ public class Elemento {
         this.valor = valor;
     }
 
-    public Elemento getNodoSiguente() {
-        return nodoSiguente;
+    public Elemento getNodoSiguiente() {
+        return nodoSiguiente;
     }
 
-    public void setNodoSiguente(Elemento nodoSiguente) {
-        this.nodoSiguente = nodoSiguente;
+    public void setNodoSiguiente(Elemento nodoSiguiente) {
+        this.nodoSiguiente = nodoSiguiente;
     }
-
-    @Override
-    public String toString() {
-        return "Elemento{" + "valor=" + valor + ", nodoSiguente=" + nodoSiguente + '}';
-    }
-    
-    
     
 }

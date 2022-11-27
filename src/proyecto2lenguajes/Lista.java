@@ -11,11 +11,11 @@ package proyecto2lenguajes;
  */
 public class Lista {
     int valor;
-    Elemento nodoSiguente;
+    Elemento nodoSiguiente;
 
-    public Lista(int valor, Elemento nodoSiguente) {
+    public Lista(int valor, Elemento nodoSiguiente) {
         this.valor = valor;
-        this.nodoSiguente = nodoSiguente;
+        this.nodoSiguiente = nodoSiguiente;
     }
 
     public Lista() {
@@ -30,14 +30,15 @@ public class Lista {
     }
 
     public Elemento getNodoSiguente() {
-        return nodoSiguente;
+        return nodoSiguiente;
     }
 
-    public void setNodoSiguente(Elemento nodoSiguente) {
-        this.nodoSiguente = nodoSiguente;
+    public void setNodoSiguente(Elemento nodoSiguiente) {
+        this.nodoSiguiente = nodoSiguiente;
     }
     
     public void agregarElemento( Elemento nuevoElemento) {
+        
         
     }
     
@@ -55,11 +56,6 @@ public class Lista {
     
     public void binarySearch( int numeroBuscar) {
         
-    }
-
-    @Override
-    public String toString() {
-        return "Lista{" + "valor=" + valor + ", nodoSiguente=" + nodoSiguente + '}';
     }
     
 }

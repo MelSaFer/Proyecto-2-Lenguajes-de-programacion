@@ -53,7 +53,7 @@
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblCurrentList" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -96,40 +96,53 @@
                   </Group>
                   <EmptySpace pref="23" max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="lblCurrentList" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="108" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFieldNewNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnIngresarNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btnBuscarNúmero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn6" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn7" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn8" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btnBorrarNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn9" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btn0" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btnRetrocederNumero1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="btnBorrarLista" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="lblCurrentList" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="118" max="32767" attributes="0"/>
+                          <Component id="txtFieldNewNumber" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn6" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn7" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn8" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btn9" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btn0" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btnRetrocederNumero1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="btnIngresarNumero" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnBuscarNúmero" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnBorrarNumero" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnBorrarLista" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
@@ -412,6 +425,20 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Lista actual: "/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCerrar">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cerrar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -5,17 +5,25 @@
  */
 package proyecto2lenguajes;
 
+import Vista.MainFrame;
+
 /**
  *
  * @author melan
  */
-public class Proyecto2Lenguajes {
+public class main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Lista listaActual = new Lista();
+        
+        MainFrame ventanaPrincipal = new MainFrame(listaActual);
+        ventanaPrincipal.setVisible(true);
+  
+        
     }
     
 }

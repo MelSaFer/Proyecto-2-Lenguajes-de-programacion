@@ -27,7 +27,7 @@ public class Pruebas {
         listaActual.agregarElemento(88);
         listaActual.agregarElemento(444);
         
-        System.out.println(listaActual.binarySearch(13));
+        System.out.println(listaActual.binarySearch(-1));
         
         
         

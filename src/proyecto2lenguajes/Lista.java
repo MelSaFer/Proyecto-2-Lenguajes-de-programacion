@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package proyecto2lenguajes;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -142,58 +144,40 @@ public class Lista {
         this.nodoSiguiente = listaResultado;
     }
     
+    public boolean binarySearch(int numeroBuscar){
+        //variables para crear el array
+        Elemento pointer = this.nodoSiguiente;
+        List<Integer> lista = new ArrayList();
+        int contador = 0;
+        
+        //varibles para la busqueda binaria
+        int startIndex = 0;
+        int middleIndex = 0;
+        int mitad = 0;
+        
+        //crear array y obtener tamaño
+        while(pointer != null){
+            lista.add(pointer.getValor());
+            pointer = pointer.getNodoSiguiente();
+            contador++;
+        }
+        
+        int endIndex = contador - 1;
+        //busqueda binaria
+        while(endIndex >= startIndex && contador>0){
+            middleIndex = (startIndex + endIndex) / 2 ;
+            mitad = lista.get(middleIndex);
 
-    public boolean binarySearch( int numeroBuscar) {
-        Elemento ultimoElemento = null;
-        Elemento primerElemento = this.nodoSiguiente;
-        Elemento mitad;
-        
-        do{
-            mitad = encontrarMedio(primerElemento, ultimoElemento);
-            if(mitad == null ){
-                return false;
-            } 
-            if (mitad.getValor() == numeroBuscar){
+            if(mitad == numeroBuscar){ //se encontró el número
                 return true;
-            } 
-            
-            if (mitad.getNodoSiguiente() == null && mitad.getValor() != numeroBuscar){
-                return false;
-            }
-            
-            if (mitad.getValor() > numeroBuscar){
-                ultimoElemento = mitad;
-                
-            } else if (mitad.getValor() < numeroBuscar){
-                primerElemento = mitad;
-            }
-        }while(ultimoElemento == null || ultimoElemento != primerElemento);
-        
-        return false;         
-    }
-    
-    public Elemento encontrarMedio( Elemento primerElemento, Elemento ultimoElemento){
-        
-        if (primerElemento == null){
-            return null;
-        }
-        
-        Elemento punteroLento = primerElemento;
-        Elemento punteroRapido = primerElemento;
-        
-        while (punteroRapido != ultimoElemento){
-            
-            punteroRapido = punteroRapido.getNodoSiguiente();
-            
-            if(punteroRapido != ultimoElemento){
-                punteroRapido = punteroRapido.getNodoSiguiente();
-                punteroLento = punteroLento.getNodoSiguiente();
-            } else{
-                break;
+            } else if(mitad > numeroBuscar){ //el numero está en el lado izquierdo
+                endIndex = middleIndex - 1;
+            } else if(mitad < numeroBuscar){ //el numero está en el lado derecho
+                startIndex = middleIndex + 1;
             }
             
         }
-        return punteroLento;
+        return false;
     }
     
     // imprime los valores de la lista

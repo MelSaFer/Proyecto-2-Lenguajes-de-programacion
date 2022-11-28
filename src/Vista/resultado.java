@@ -99,6 +99,7 @@ public class resultado extends javax.swing.JFrame {
     private void btnRegresarAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarAnteriorActionPerformed
         // TODO add your handling code here:
         VentanaPrincipal.setVisible(true);
+        //lblCurrentList.setSize(316, 125);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarAnteriorActionPerformed
 

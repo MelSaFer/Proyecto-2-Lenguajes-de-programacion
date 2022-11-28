@@ -236,6 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
         lblCurrentList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblCurrentList.setForeground(new java.awt.Color(0, 0, 0));
         lblCurrentList.setText("Lista actual: ");
+        lblCurrentList.setPreferredSize(new java.awt.Dimension(313, 122));
         jScrollPane1.setViewportView(lblCurrentList);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -286,7 +287,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(btnCerrar)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addComponent(jScrollPane1)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -329,7 +330,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -418,6 +419,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "7");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn7ActionPerformed
 

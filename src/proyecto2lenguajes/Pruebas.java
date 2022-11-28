@@ -16,15 +16,19 @@ public class Pruebas {
      */
     public static void main(String[] args) {
         Lista listaActual = new Lista();
+        listaActual.agregarElemento(0);
         listaActual.agregarElemento(1);
         listaActual.agregarElemento(2);
-        listaActual.agregarElemento(3);
+        listaActual.agregarElemento(4);
         listaActual.agregarElemento(5);
-        listaActual.agregarElemento(10);
-        listaActual.agregarElemento(13);
+        listaActual.agregarElemento(7);
+        listaActual.agregarElemento(9);
+        listaActual.agregarElemento(66);
+        listaActual.agregarElemento(88);
+        listaActual.agregarElemento(444);
         
-       
-        System.out.println(listaActual.binarySearch(5));
+        System.out.println(listaActual.binarySearch(13));
+        
         
         
 ;

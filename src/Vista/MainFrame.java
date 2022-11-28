@@ -11,10 +11,12 @@ package Vista;
  * @author melan
  */
 import javax.swing.JOptionPane;
+import proyecto2lenguajes.Elemento;
 import proyecto2lenguajes.Lista;
 
 public class MainFrame extends javax.swing.JFrame {
-    Lista listaUsuario;
+    private Lista listaUsuario;
+    private static int limit = 9;
 
     /**
      * Creates new form MainFrame
@@ -54,8 +56,9 @@ public class MainFrame extends javax.swing.JFrame {
         btnBorrarNumero = new javax.swing.JButton();
         btn1 = new javax.swing.JButton();
         btnRetrocederNumero1 = new javax.swing.JButton();
-        lblCurrentList = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblCurrentList = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -218,11 +221,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        lblCurrentList.setBackground(new java.awt.Color(255, 255, 255));
-        lblCurrentList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lblCurrentList.setForeground(new java.awt.Color(0, 0, 0));
-        lblCurrentList.setText("Lista actual: ");
-
         btnCerrar.setBackground(new java.awt.Color(153, 153, 255));
         btnCerrar.setForeground(new java.awt.Color(0, 0, 0));
         btnCerrar.setText("Cerrar");
@@ -232,14 +230,25 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblCurrentList.setEditable(false);
+        lblCurrentList.setBackground(new java.awt.Color(255, 255, 255));
+        lblCurrentList.setBorder(null);
+        lblCurrentList.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblCurrentList.setForeground(new java.awt.Color(0, 0, 0));
+        lblCurrentList.setText("Lista actual: ");
+        jScrollPane1.setViewportView(lblCurrentList);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCerrar))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCurrentList)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -271,19 +280,16 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(btnBorrarNumero, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnBorrarLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnCerrar))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(btnCerrar)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(lblCurrentList)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(txtFieldNewNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -302,8 +308,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(btn9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn0, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRetrocederNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(btnIngresarNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscarNúmero)
@@ -334,74 +339,111 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void btnBuscarNúmeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarNúmeroActionPerformed
         // TODO add your handling code here:
-        resultado ventanaResultado = new resultado();
-        ventanaResultado.setVisible(true);
-        this.setVisible(false);
+        listaUsuario.insertionSort();
+        listaUsuario.listar();
+        boolean resultado;
+        
+        if(txtFieldNewNumber.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar el número que desea buscar");
+        } else{
+            resultado = listaUsuario.binarySearch(Integer.parseInt(txtFieldNewNumber.getText()));
+            txtFieldNewNumber.setText("");
+            System.out.println(resultado);
+            this.setVisible(false);
+            resultado ventanaResultado = new resultado(this, resultado);
+            ventanaResultado.setVisible(true);
+            this.setVisible(false);
+        }
+        
+        
     }//GEN-LAST:event_btnBuscarNúmeroActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "1");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "0");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
         
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "2");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "3");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "4");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "5");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "6");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "7");
         }
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "8");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
-        if ((txtFieldNewNumber.getText().length() != 22) && (txtFieldNewNumber.getText().startsWith("0") == false)){
+        if ((txtFieldNewNumber.getText().length() != limit) && (txtFieldNewNumber.getText().startsWith("0") == false)){
             txtFieldNewNumber.setText(txtFieldNewNumber.getText()+ "9");
+        } else{
+            JOptionPane.showMessageDialog(null, "No puede ingresar mas digitos");
         }
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnBorrarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarNumeroActionPerformed
-        // TODO add your handling code here:
+        int resultado = listaUsuario.eliminarElemento(Integer.parseInt(txtFieldNewNumber.getText()));
+        if(resultado != 1){
+            JOptionPane.showMessageDialog(null, "El elemento no está en la lista");
+        };
+        this.pintar();
+        txtFieldNewNumber.setText("");
     }//GEN-LAST:event_btnBorrarNumeroActionPerformed
 
     private void btnRetrocederNumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederNumero1ActionPerformed
@@ -413,16 +455,15 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRetrocederNumero1ActionPerformed
 
     private void btnBorrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarListaActionPerformed
-        // TODO add your handling code here:
+        listaUsuario.eliminar();
+        this.pintar();
     }//GEN-LAST:event_btnBorrarListaActionPerformed
 
     private void btnIngresarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarNumeroActionPerformed
-        // TODO add your handling code here:
-        if (lblCurrentList.getText().equals("Lista actual: ")){
-            lblCurrentList.setText(lblCurrentList.getText() + txtFieldNewNumber.getText());
-        } else if(txtFieldNewNumber.getText().equals("") == false){
-            lblCurrentList.setText(lblCurrentList.getText()+ ", " + txtFieldNewNumber.getText());
-        }
+        listaUsuario.agregarElemento(Integer.parseInt(txtFieldNewNumber.getText()));
+        listaUsuario.listar();
+        System.out.println("\n");
+        this.pintar();
         txtFieldNewNumber.setText("");
     }//GEN-LAST:event_btnIngresarNumeroActionPerformed
 
@@ -466,6 +507,21 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     
+    public void pintar(){
+        lblCurrentList.setText("Lista actual: ");
+        if (listaUsuario != null) {
+            Elemento aux = listaUsuario.getNodoSiguente();
+            while(aux != null){
+                if(lblCurrentList.getText().equals("Lista actual: ")){
+                    lblCurrentList.setText(lblCurrentList.getText()+ " " + aux.getValor());
+                }else{
+                    lblCurrentList.setText(lblCurrentList.getText()+ ", " + aux.getValor());
+                }
+                aux = aux.getNodoSiguiente();
+            }
+        } 
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
@@ -485,7 +541,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresarNumero;
     private javax.swing.JButton btnRetrocederNumero1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblCurrentList;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane lblCurrentList;
     private javax.swing.JTextField txtFieldNewNumber;
     // End of variables declaration//GEN-END:variables
 }

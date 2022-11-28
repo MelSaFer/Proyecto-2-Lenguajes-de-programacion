@@ -10,12 +10,21 @@ package Vista;
  * @author melan
  */
 public class resultado extends javax.swing.JFrame {
+    private MainFrame VentanaPrincipal;
+    private boolean resultado;
 
     /**
      * Creates new form resultado
      */
     public resultado() {
         initComponents();
+    }
+    
+    public resultado(MainFrame ventanaPrincipal, boolean resul) {
+        VentanaPrincipal = ventanaPrincipal;
+        resultado = resul;
+        initComponents();
+        pintarResultado();
     }
 
     /**
@@ -29,6 +38,7 @@ public class resultado extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnRegresarAnterior = new javax.swing.JButton();
+        lblResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -43,6 +53,11 @@ public class resultado extends javax.swing.JFrame {
             }
         });
 
+        lblResultado.setBackground(new java.awt.Color(255, 255, 255));
+        lblResultado.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lblResultado.setForeground(new java.awt.Color(0, 0, 0));
+        lblResultado.setText("Resultado");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -51,11 +66,17 @@ public class resultado extends javax.swing.JFrame {
                 .addContainerGap(261, Short.MAX_VALUE)
                 .addComponent(btnRegresarAnterior)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(lblResultado)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(270, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addComponent(lblResultado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                 .addComponent(btnRegresarAnterior)
                 .addContainerGap())
         );
@@ -77,8 +98,7 @@ public class resultado extends javax.swing.JFrame {
 
     private void btnRegresarAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarAnteriorActionPerformed
         // TODO add your handling code here:
-        MainFrame ventanaMainFrame = new MainFrame();
-        ventanaMainFrame.setVisible(true);
+        VentanaPrincipal.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegresarAnteriorActionPerformed
 
@@ -116,9 +136,18 @@ public class resultado extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void pintarResultado(){
+        if(resultado == true){
+            lblResultado.setText("Se ha encontrado");
+        }else {
+            lblResultado.setText("No se ha encontrado");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegresarAnterior;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblResultado;
     // End of variables declaration//GEN-END:variables
 }

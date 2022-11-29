@@ -441,12 +441,18 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnBorrarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarNumeroActionPerformed
-        int resultado = listaUsuario.eliminarElemento(Integer.parseInt(txtFieldNewNumber.getText()));
-        if(resultado != 1){
-            JOptionPane.showMessageDialog(null, "El elemento no está en la lista");
-        };
-        this.pintar();
-        txtFieldNewNumber.setText("");
+        if(txtFieldNewNumber.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un numero");
+        }
+        else{
+            int resultado = listaUsuario.eliminarElemento(Integer.parseInt(txtFieldNewNumber.getText()));
+            if(resultado != 1){
+                JOptionPane.showMessageDialog(null, "El elemento no está en la lista");
+            };
+            this.pintar();
+            txtFieldNewNumber.setText("");
+        }
+        
     }//GEN-LAST:event_btnBorrarNumeroActionPerformed
 
     private void btnRetrocederNumero1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrocederNumero1ActionPerformed
@@ -458,16 +464,27 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRetrocederNumero1ActionPerformed
 
     private void btnBorrarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarListaActionPerformed
-        listaUsuario.eliminar();
+        if(listaUsuario.getNodoSiguente() == null){
+            JOptionPane.showMessageDialog(null, "La lista está vacía");
+        }
+        else{
+            listaUsuario.eliminar();
         this.pintar();
+        }
+        
     }//GEN-LAST:event_btnBorrarListaActionPerformed
 
     private void btnIngresarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarNumeroActionPerformed
-        listaUsuario.agregarElemento(Integer.parseInt(txtFieldNewNumber.getText()));
-        listaUsuario.listar();
-        System.out.println("\n");
-        this.pintar();
-        txtFieldNewNumber.setText("");
+        if(txtFieldNewNumber.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un numero");
+        }
+        else{
+            listaUsuario.agregarElemento(Integer.parseInt(txtFieldNewNumber.getText()));
+            listaUsuario.listar();
+            System.out.println("\n");
+            this.pintar();
+            txtFieldNewNumber.setText("");
+        }
     }//GEN-LAST:event_btnIngresarNumeroActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed

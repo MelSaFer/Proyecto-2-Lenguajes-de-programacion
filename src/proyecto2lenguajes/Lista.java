@@ -147,7 +147,7 @@ public class Lista {
     public boolean binarySearch(int numeroBuscar){
         //variables para crear el array
         Elemento pointer = this.nodoSiguiente;
-        List<Integer> lista = new ArrayList();
+        ArrayList<Integer> lista = new ArrayList();
         int contador = 0;
         
         //varibles para la busqueda binaria
